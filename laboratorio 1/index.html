@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab 1</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="estilo.css" />
+    <style>
+            .clase-a{
+                background-image: url("1.jpg");
+                background-size: 100vw 100vh;
+                background-attachment: fixed;
+                margin: 0;
+            }
+            .clase-b{
+                background-image: url("23.jpg");
+                background-size: 100vw 100vh;
+                background-attachment: fixed;
+                margin: 0;
+            }
+            .clase-c{
+                background-image: url("21.jpg");
+                background-size: 100vw 100vh;
+                background-attachment: fixed;
+                margin: 0;
+            }
+    </style>
+</head>
+
+
+<body id="body" class="clase-a">
+        <button id="Btn1" data-fondo="clase-a">I1</button>       
+        <button id="Btn1" data-fondo="clase-b">I2</button>       
+        <button id="Btn1" data-fondo="clase-c">I3</button>
+        <div class="container">
+                <div class="col-md-4" id="div1">
+                    <div class="card" id="div2">
+                        <div class="card-header" id="div3">
+                            <h4>Que hace?</h4>
+                        </div>
+                        <form id="product-form" class="card-body">
+                            <div class="form-group"></div>
+                                <input type="text" id="name" placeholder="Texto" class="form-control">
+                            </div>
+                            <input type="submit" value="Aceptar" class="btn btn-primary btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <form action="2" id="form1">
+                    <div id="product-list" class="col-md-8"></div>
+            </form>
+            <form action="3" id="form2">
+                <h1>Ubicación</h1>
+                <div id="map"></div>
+        </form>
+    </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!--Script del comentario-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript"></script>
+
+            <!--Script de los fondos de pantalla-->
+    <script>
+        $(function(){
+        var $body = $('body');
+        $body.find('button').on('click', function(){
+            var boton =$(this);
+            var claseAAplicar = boton.data('fondo');
+            aplicarClase(claseAAplicar);
+    });
+    function aplicarClase(unaclase){
+        $body.removeClass();
+        $body.addClass(unaclase);
+    }
+    aplicarClase('clase-a');
+});
+    </script>
+             <!--Script del mapa-->
+             <div id="map"></div>
+             <script>
+                    // Initialize and add the map
+                    function initMap() {
+                      // The location of Uluru
+                      var uluru = {lat:10.4046592, lng:-84.2121216};
+                      // The map, centered at Uluru
+                      var map = new google.maps.Map(
+                          document.getElementById('map'), {zoom: 4, center: uluru});
+                      // The marker, positioned at Uluru
+                      var marker = new google.maps.Marker({position: uluru, map: map});
+                    }
+             </script>
+    <script async defer
+             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9GOm1zXOClSIwRYACB00xTa9ECFlQyuo&callback=initMap">
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
